@@ -1,0 +1,12 @@
+/*fvPatchFields/derived/fixedGradientSuspSed/fixedGradientSuspSedFvPatchScalarField.C*/
+
+fvPatchFields/derived/timeVaryingMappedPerturbationFixedValue/timeVaryingMappedPerturbationFixedValueFvPatchFields.C
+
+pointPatchFields/derived/twoDBedformDisplacement/twoDBedformDisplacement.C
+pointPatchFields/derived/erodibleBedDisplacement/erodibleBedDisplacement.C
+
+faPatchFields/derived/matchedFlowRateInletVelocity/matchedFlowRateInletVelocityFaPatchVectorField.C
+
+/*areaFieldsToVTK/areaFieldsTools.C*/
+
+LIB = $(FOAM_USER_LIBBIN)/libSediment

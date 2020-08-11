@@ -1,0 +1,12 @@
+In this directory, different equilibrium reference concentration formulas are implemented as boundary condtions. These BCs should be used for sediment patches in the Cb_star field only (except the van Rijn (1984) pickup function approach). 
+
+Planned formulas:
+1. Zyserman and Fredsoe (1994)
+2. Einstein (1950)
+3. Engelund and Fredsoe (1976; 1982)
+4. Smith and McLean (1977)
+5. Van Rijn (1984) (pick up function)
+
+
+There are other formulas, such as Garcia and Parker (1991) which uses a reference height b=0.05H. However, it is not so clear how to implement them in a 3D code where the boundary layer is resolved or modeled. 
+

@@ -1,0 +1,27 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      decomposeParDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+numberOfSubdomains  20;
+method      simple;
+//method scotch;
+
+simpleCoeffs
+{
+    n           (5 4 1);
+    delta       0.001;
+}
+
+// ************************************************************************* //

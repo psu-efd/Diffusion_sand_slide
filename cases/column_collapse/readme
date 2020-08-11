@@ -1,0 +1,5 @@
+
+   How to run the cases:
+   1. To set up the initial bed elevation eta, run the "setBedShape" tool first.
+   2. Then, run either "geomSlideFoam" or "sandSlideFoam". 
+   3. To run the postprocessing, use the sample and sample1 dictionary files in "system". 

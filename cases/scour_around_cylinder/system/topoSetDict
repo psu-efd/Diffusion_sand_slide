@@ -1,0 +1,66 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // 1. Get the faces at the top patch
+
+    // Get all the faces in the top patch
+    {
+        name    top;
+        type    faceSet;
+        action  new;
+        source  patchToFace;
+        patch   top;
+    }
+
+    // Convert top from faceSet to faceZone
+    {
+        name    top;
+        type    faceZoneSet;
+        action  new;
+        source  setAndNormalToFaceZone;
+        faceSet top;
+        normal  (0 1 0);
+    }
+
+
+    // 2. Get the faces at the bed patch
+
+    // Get all the faces in the bed patch
+    {
+        name    bed;
+        type    faceSet;
+        action  new;
+        source  patchToFace;
+        patch   bed;
+    }
+
+    // Convert top from faceSet to faceZone
+    {
+        name    bed;
+        type    faceZoneSet;
+        action  new;
+        source  setAndNormalToFaceZone;
+        faceSet bed;
+        normal  (0 -1 0);
+    }
+
+);
+
+
+// ************************************************************************* //

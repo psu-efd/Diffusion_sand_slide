@@ -1,0 +1,92 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      sedimentProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+//There are some repetitions with other input files, for example nu.
+
+//switch for whether to calculate the sediment part
+calculateSed on;
+
+checkMesh off;
+
+// If sediment is turned on, how many fluid steps per one bed step
+nFluidStepsPerBedStep 5;
+
+//switch for bedload
+calcBedLoad on;
+
+//switch for suspended load
+calcSuspLoad off;
+
+//parameters for suspended sediment transport
+
+//suspSedBC "vanRijn1984PickupFunction";
+//suspSedBC "IgnoreRefHeight";
+//suspSedBC "ExtrapolateToWall";
+suspSedBC "IgnoreRefHeight";
+
+//If the option ExtrapolateToWall is chosen, the user
+//needs to specify the scheme of extrapolation:
+//    linearization or exponential.
+//linearization is more compatible with the low order of FVM in OF (usually
+//first or second order at most). exponential is not compatilbe with low
+//order FVM. It should be used for schemes such as "exact" scheme.
+extrapolationOption linearization; //or exponential
+
+//end of parameters for suspended sediment
+
+//kinematic viscosity of water
+nu         nu   [0 2 -1 0 0 0 0] 1e-6;        
+
+//sediment density
+rhos       rhos [1 -3 0 0 0 0 0] 2650;
+
+//water density
+rhow       rhow [1 -3 0 0 0 0 0] 1000;
+
+//sediment diameter
+diam       diam [0 1 0 0 0 0 0] 0.00026;
+
+//bed porosity
+porosity   porosity [0 0 0 0 0 0 0] 0.4;
+
+//critical Shields Number
+theta_cri_b theta_cri_b [0 0 0 0 0 0 0] 0.05;
+
+theta_cri_s theta_cri_s [0 0 0 0 0 0 0] 0.25;
+
+C         C     [0 0 0 0 0 0 0] 0;
+
+//angle of repose for sediment:29 degree = 0.506 rad
+angleOfRepose angleOfRepose [0 0 0 0 0 0 0] 0.558;
+
+//Schmit number
+sigmac sigmac  [0 0 0 0 0 0 0] 0.7;
+
+//Static friction coefficient
+mus mus  [0 0 0 0 0 0 0] 0.63;
+
+sandSlide
+{
+    sandSlide on;
+
+    maxSandSlideIter 500;
+
+    bedAngleAtSurfaceOption GNGS;  //or LGS
+
+    K0   K0 [0 2 -1 0 0 0 0] 0.0005;
+}
+
+// ************************************************************************* //

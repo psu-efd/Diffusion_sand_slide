@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  | =========                 |                                                 |
+  | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+  |  \\    /   O peration     | Version:  dev                                   |
+  |   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+  |    \\/     M anipulation  |                                                 |
+  \*---------------------------------------------------------------------------*/
+FoamFile
+{
+	version     2.0;
+	format      ascii;
+	class       dictionary;
+	object      motionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+//dynamicFvMesh      staticFvMesh;
+
+
+dynamicFvMesh   dynamicMotionSolverFvMesh;
+
+motionSolverLibs ("libfvMotionSolvers.so");
+
+solver          displacementLayeredMotion;
+
+displacementLayeredMotionCoeffs
+{
+    // In addition to boundary conditions on pointDisplacement
+    // we can also have boundary conditions on faceZones bordering cellZones.
+    regions
+    {
+        channel
+        {
+            interpolationScheme linear;
+
+            boundaryField
+            {
+                top // patch
+                {
+                    type            follow; //use pointDisplacement bc
+                }
+
+                bed // patch
+                {
+                    type            follow; //use pointDisplacement bc
+                }
+            }
+        }
+     }
+}
+
+
+
+
+
+// ************************************************************************* //
