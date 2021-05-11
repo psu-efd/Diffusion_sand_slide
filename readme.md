@@ -13,6 +13,10 @@
                field using the setBedShape tool.
  4. cases: all simulation cases.
 
+## Reference ##
+
+Y. Song, Y. Xu, and X. Liu (2020). A gradient-limited diffusive sand slide method in scour models. Journal of Hydraulic Engineering. 146(11): 04020074
+
 ## Disclaimer ##
 This offering is not approved or endorsed by OpenCFD Limited, producer and distributor of the OpenFOAM software via <www.openfoam.com>, and owner of the OPENFOAM&reg;  and OpenCFD&reg; trade marks.
 
